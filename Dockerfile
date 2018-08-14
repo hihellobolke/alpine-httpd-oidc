@@ -26,7 +26,8 @@ ENV JANSSON_VERSION 2.11
 ENV CJOSE_VERSION 0.6.1
 ENV OIDC_VERSION 2.3.7
 ENV OIDC_URL="https://github.com/zmartzone/mod_auth_openidc/archive/v${OIDC_VERSION}.zip"
-ENV OIDC_URL_DEV="https://github.com/hihellobolke/mod_auth_openidc/archive/master.zip"
+ENV OIDC_URL_DEV="https://github.com/zmartzone/mod_auth_openidc/archive/master.zip"
+# ENV OIDC_URL_DEV="https://github.com/hihellobolke/mod_auth_openidc/archive/master.zip"
 ENV HTTPD_VERSION 2.4.34
 ENV HTTPD_SHA256 fa53c95631febb08a9de41fd2864cfff815cf62d9306723ab0d4b8d7aa1638f0
     
@@ -195,7 +196,7 @@ RUN set -eux; \
 # mod_auth_oidc
 RUN set -x \
     && export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/app/local/lib/pkgconfig \
-    && /usr/bin/wget -nv -O /tmp/download/mod_auth_openidc.zip $OIDC_URL \
+    && /usr/bin/wget -nv -O /tmp/download/mod_auth_openidc.zip $OIDC_URL_DEV \
     && cd /tmp/src && unzip /tmp/download/mod_auth_openidc.zip \
     && cd /tmp/src/mod_* \
         && ./autogen.sh \
